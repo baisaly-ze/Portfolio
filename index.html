@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baisaly Karmakar | Portfolio</title>
+    <meta
+      name="description"
+      content="Personal portfolio of Baisaly Karmakar - BCA Graduate | Fresher | IT Enthusiast"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="loader" id="loader">
+      <div class="loader-box">
+        <div class="loader-initials">BK</div>
+        <div class="loader-bar"><span></span></div>
+        <div class="loader-text">Loading Portfolio Experience</div>
+      </div>
+    </div>
+
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <canvas id="particles"></canvas>
+    <div class="noise"></div>
+
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a href="#home" class="logo">Baisaly <span>Karmakar</span></a>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section hero" id="home">
+        <div class="hero-left reveal left show">
+          <div class="tag">
+            Available for entry-level IT and web development opportunities
+          </div>
+          <h1><span class="shimmer">Baisaly</span><br />Karmakar</h1>
+          <div class="hero-sub">BCA Graduate | Fresher | IT Enthusiast</div>
+          <p class="hero-desc">
+            Hi, I’m Baisaly. A BCA graduate and aspiring full-stack developer
+            who enjoys turning ideas into interactive web experiences. I build
+            responsive applications, explore backend logic, and focus on clean
+            UI and real-world usability. With a strong foundation in development
+            and a growing interest in cybersecurity, I’m always learning,
+            building, and improving. Let’s create something impactful.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a href="./assets/BAISALY_KARMAKAR resume.pdf" download class="btn outline">📄 Download Resume</a>
+          </div>
+        </div>
+
+        <div class="hero-right reveal right show">
+          <div class="orb"></div>
+          <div class="avatar-wrap">
+            <div class="dash-ring"></div>
+            <div class="floating-card">
+              <img src="./assets/picofme (5).png" alt="Baisaly Karmakar" class="initial-badge" />
+              <div class="card-role">
+                IT Enthusiast & Entry-Level Web Developer
+              </div>
+              <div class="card-sub">
+                Focused on frontend, backend, database fundamentals, and
+                beginner cybersecurity knowledge.
+              </div>
+              <div class="stats">
+                <div class="stat">
+                  <b>6</b>
+                  <span>Projects Built</span>
+                </div>
+                <div class="stat">
+                  <b>7.64</b>
+                  <span>CGPA</span>
+                </div>
+                <div class="stat">
+                  <b>2025</b>
+                  <span>BCA Completion</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee-wrap">
+        <div class="marquee">
+          <span>Entry-Level Web Developer </span>
+          <span>Turning Ideas into Web Applications</span>
+          <span> MERN Stack Learner </span>
+          <span> Frontend Focus </span>
+          <span>Learning Everyday</span>
+          <span> Building Real-World Projects </span>
+          <span>Open to Opportunities</span>
+          <span>Entry-Level Web Developer </span>
+          <span>Turning Ideas into Web Applications</span>
+          <span> MERN Stack Learner </span>
+          <span> Frontend Focus </span>
+          <span>Learning Everyday</span>
+          <span> Building Real-World Projects </span>
+          <span>Open to Opportunities</span>
+        </div>
+      </div>
+
+      <section class="section" id="skills">
+        <h2 class="section-title reveal">Skills & Technologies</h2>
+        <p class="section-subtitle reveal">
+          A practical blend of frontend, backend, database, tools, and
+          foundational cybersecurity knowledge gathered through coursework and
+          hands-on projects.
+        </p>
+
+        <div class="skills-grid">
+          <div class="card reveal left">
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="top"><span>Frontend Development</span></div>
+                <div class="bar">
+                  <div class="bar-fill" data-width="88%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="top"><span>Backend Development</span></div>
+                <div class="bar">
+                  <div class="bar-fill" data-width="78%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="top"><span>Database / MongoDB</span></div>
+                <div class="bar">
+                  <div class="bar-fill" data-width="78%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="top"><span>Programming Languages</span></div>
+                <div class="bar">
+                  <div class="bar-fill" data-width="60%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="top"><span>Tools & Workflow</span></div>
+                <div class="bar">
+                  <div class="bar-fill" data-width="85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="top"><span>Cybersecurity Fundamentals</span></div>
+                <div class="bar">
+                  <div class="bar-fill" data-width="68%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal right">
+            <h3 class="card-title" style="margin-bottom: 16px">Tech Stack</h3>
+            <div class="chip-cloud">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">React.js</span>
+              <!-- <span class="chip">Next.js</span> -->
+              <span class="chip">Node.js</span>
+              <span class="chip">Express.js</span>
+              <span class="chip">MongoDB</span>
+              <span class="chip">Python</span>
+              <span class="chip">Java (Basic)</span>
+              <span class="chip">Git</span>
+              <span class="chip">Postman</span>
+              <span class="chip">MERN Stack</span>
+              <span class="chip">Kali Linux</span>
+              <span class="chip">QRadar</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <h2 class="section-title reveal">Technical Experience</h2>
+        <p class="section-subtitle reveal">
+          Training-based practical exposure focused on MERN stack development,
+          project building, and strengthening implementation skills across
+          MongoDB, Express.js, React, and Node.js.
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item reveal left">
+            <div class="card exp-card">
+              <div class="eyebrow">
+                <span>08/2024 – 02/2025</span>
+                <!-- <span>Dum Dum / Kolkata region</span> -->
+              </div>
+              <div class="title-row">
+                <h3 class="card-title">MERN Stack Developer Trainee</h3>
+                <span class="badge">Training Experience</span>
+              </div>
+              <p style="margin: 0; color: #dfe6ff">
+                <strong>Experience Confidence</strong>
+              </p>
+              <p
+                class="section-subtitle"
+                style="margin: 10px 0 0; max-width: none"
+              >
+                Completed 6-month industrial training in MERN stack, developing
+                web projects with MongoDB, Express.js, React, and Node.js. Built
+                hands-on understanding of full-stack workflow and modern web
+                application development practices.
+              </p>
+              <div class="badge-row">
+                <span class="badge">MERN Stack</span>
+                <span class="badge">MongoDB</span>
+                <span class="badge">Express.js</span>
+                <span class="badge">React</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">Industrial Training</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <h2 class="section-title reveal">Featured Projects</h2>
+        <p class="section-subtitle reveal">
+          Projects extracted directly from the resume, spanning finance
+          tracking, e-commerce, UI interaction, and attendance automation.
+        </p>
+
+        <div class="projects-grid">
+          <article class="card project-card reveal">
+            <div class="emoji">📚</div>
+            <h3 class="card-title">Book Management System</h3>
+            <p
+              class="section-subtitle"
+              style="margin: 10px 0 0; max-width: none"
+            >
+              Developed a full-stack book management system using the MERN
+              stack, enabling users to maintain reading lists, track progress,
+              and organize books by category. Implemented RESTful APIs and CRUD
+              operations with a responsive UI.
+            </p>
+            <div class="tags">
+              <span class="tag-mini">MongoDB</span>
+              <span class="tag-mini">Express.js</span>
+              <span class="tag-mini">React</span>
+              <span class="tag-mini">Node.js</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://booktracker-livid.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn small"
+                >🔗 Live Demo</a
+              >
+              <!-- <a href="#" target="_blank" class="btn small outline">💻 GitHub</a> -->
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="emoji">🛒</div>
+            <h3 class="card-title">GROCERY WEBSITE</h3>
+            <p
+              class="section-subtitle"
+              style="margin: 10px 0 0; max-width: none"
+            >
+              Developed a grocery website using the MERN stack with product
+              listing, cart management, and a functional UI focused on practical
+              shopping flow and responsive interaction.
+            </p>
+            <div class="tags">
+              <span class="tag-mini">MongoDB</span>
+              <span class="tag-mini">Express.js</span>
+              <span class="tag-mini">React</span>
+              <span class="tag-mini">Node.js</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://grocery-frontend-xi.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn small"
+                >🔗 Live Demo</a
+              >
+              <!-- <a href="#" target="_blank" class="btn small outline">💻 GitHub</a> -->
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="emoji">🧠</div>
+            <h3 class="card-title">Personality Insight UI Application</h3>
+            <p
+              class="section-subtitle"
+              style="margin: 10px 0 0; max-width: none"
+            >
+              Developed an interactive personality-based application using HTML,
+              CSS, and JavaScript with dynamic UI transitions, real-time user
+              input handling, and visually engaging result displays based on
+              user responses.
+            </p>
+            <div class="tags">
+              <span class="tag-mini">HTML</span>
+              <span class="tag-mini">CSS</span>
+              <span class="tag-mini">JavaScript</span>
+              <span class="tag-mini">Dynamic UI</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://baisaly-ze.github.io/vibecheck-personality-app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn small"
+                >🔗 Live Demo</a
+              >
+              <!-- <a href="#" target="_blank" class="btn small outline"
+                >💻 GitHub</a
+              > -->
+            </div>
+          </article>
+
+<article class="card project-card reveal">
+            <div class="emoji">⏳</div>
+            <h3 class="card-title">TimeCapsule – Digital Memory Capsule</h3>
+            <p
+              class="section-subtitle"
+              style="margin: 10px 0 0; max-width: none"
+            >
+              Built a full-stack digital memory capsule using the MERN stack,
+              enabling users to create time-locked messages accessible only
+              after a selected future date, with dynamic UI updates and secure
+              data storage.
+            </p>
+            <div class="tags">
+              <span class="tag-mini">MongoDB</span>
+              <span class="tag-mini">Express.js</span>
+              <span class="tag-mini">React</span>
+              <span class="tag-mini">Node.js</span>
+              <span class="tag-mini">Time-based Logic</span>
+              <span class="tag-mini">REST API</span>
+            </div>
+
+            <!-- <div class="project-links">
+    <a href="#" target="_blank" class="btn small">🔗 Live Demo</a>
+    <a href="#" target="_blank" class="btn small outline">💻 GitHub</a>
+  </div> -->
+          </article>
+
+
+          <article class="card project-card reveal">
+            <div class="emoji">💸</div>
+            <h3 class="card-title">Budget Tracker</h3>
+            <p
+              class="section-subtitle"
+              style="margin: 10px 0 0; max-width: none"
+            >
+              Built a full-stack personal finance tracker using the MERN stack
+              (MongoDB, Express.js, React, Node.js), featuring real-time expense
+              tracking, data analysis, and pattern identification for better
+              financial insights.
+            </p>
+            <div class="tags">
+              <span class="tag-mini">MongoDB</span>
+              <span class="tag-mini">Express.js</span>
+              <span class="tag-mini">React</span>
+              <span class="tag-mini">Node.js</span>
+            </div>
+            <!-- 
+  <div class="project-links">
+    <a href="#" target="_blank" class="btn small">🔗 Live Demo</a>
+    <a href="#" target="_blank" class="btn small outline">💻 GitHub</a>
+  </div> -->
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="emoji">📲</div>
+            <h3 class="card-title">QR Code-Based Attendance System</h3>
+            <p
+              class="section-subtitle"
+              style="margin: 10px 0 0; max-width: none"
+            >
+              Designed and deployed a contactless QR code attendance system
+              using Python Flask, enabling real-time student check-in and
+              check-outs with dynamic forms and record tracking.
+            </p>
+            <div class="tags">
+              <span class="tag-mini">Python</span>
+              <span class="tag-mini">Flask</span>
+              <span class="tag-mini">QR Attendance</span>
+              <span class="tag-mini">Record Tracking</span>
+            </div>
+          </article>
+
+          
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <h2 class="section-title reveal">Education & Languages</h2>
+        <p class="section-subtitle reveal">
+          Academic background in computer applications, with supporting school
+          education and language proficiency suitable for collaboration and
+          communication.
+        </p>
+
+        <div class="edu-lang">
+          <div class="edu-list">
+            <div class="card edu-card reveal left">
+              <h3>BCA - Bachelor in Computer Application</h3>
+              <div class="edu-meta">
+                <strong>BCA - Bachelor in Computer Application |</strong>
+                Nimas, George Group of Colleges<br />
+                <strong>CGPA:</strong> 7.64<br />
+                <strong>Duration:</strong> 08/2022 – 07/2025
+              </div>
+            </div>
+
+            <div class="card edu-card reveal left">
+              <h3>Higher Secondary Education</h3>
+              <div class="edu-meta">
+                Higher Secondary Education | Dumdum Road GOVT. SPONS. High
+                School<br />
+                <!-- <strong>Location:</strong> Dumdum<br> -->
+                <strong>Percentage:</strong> 80%
+              </div>
+            </div>
+
+            <div class="card edu-card reveal left">
+              <h3>Madhyamik (Secondary Education)</h3>
+              <div class="edu-meta">
+                Madhyamik (Secondary Education)| Sree Ramkrishna Sarada Sangha
+                Balika Vidyalaya<br />
+                <strong>Percentage:</strong> 66%
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal right">
+            <h3 class="card-title" style="margin-bottom: 16px">Languages</h3>
+            <div class="lang-wrap">
+              <div class="lang-badge">
+                <b>English</b>
+                <span style="color: var(--muted)"
+                  >Professional / Working Proficiency</span
+                >
+              </div>
+              <div class="lang-badge" style="animation-delay: 0.15s">
+                <b>Bengali</b>
+                <span style="color: var(--muted)">Native / Fluent</span>
+              </div>
+              <div class="lang-badge" style="animation-delay: 0.3s">
+                <b>Hindi</b>
+                <span style="color: var(--muted)">Conversational</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 24px">
+              <h3 class="card-title" style="margin-bottom: 12px">Interests</h3>
+              <p class="section-subtitle" style="margin: 0; max-width: none">
+                <strong>Reading Novels</strong> — Reading novels across
+                different genres to expand creativity and perspective.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <h2 class="section-title reveal">Contact</h2>
+        <p class="section-subtitle reveal">
+          Open to fresher opportunities, internships, and entry-level roles in
+          web development, software, and IT support domains.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-list">
+            <div class="contact-item reveal left">
+              <div class="icon">✉️</div>
+              <div>
+                <b>Email</b>
+                <a href="mailto:baisalykarmakar@gmail.com"
+                  >baisalykarmakar@gmail.com</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-item reveal left">
+              <div class="icon">📞</div>
+              <div>
+                <b>Phone</b>
+                <a href="tel:7059065931">7059065931</a>
+              </div>
+            </div>
+
+            <div class="contact-item reveal left">
+              <div class="icon">📍</div>
+              <div>
+                <b>Location</b>
+                <span>Kolkata</span>
+              </div>
+            </div>
+
+            <div class="contact-item reveal left">
+              <div class="icon">🔗</div>
+              <div>
+                <b>LinkedIn</b>
+                <a
+                  href="https://linkedin.com/in/baisaly-karmakar-759332321"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >linkedin.com/in/baisaly-karmakar-759332321</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-item reveal left">
+              <div class="icon">🟢</div>
+              <div>
+                <b>Availability</b>
+                <span
+                  >Available for entry-level IT and web development roles</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="ripple-zone reveal right">
+            <div class="ripple r1"></div>
+            <div class="ripple r2"></div>
+            <div class="ripple r3"></div>
+            <div class="pulse-core">BK</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 Baisaly Karmakar — Built with code, creativity, and curiosity.
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
