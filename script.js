@@ -3,7 +3,12 @@ window.addEventListener("load", () => {
   document.getElementById("loader").classList.add("hide");
 });
 
-// Custom cursor
+
+const isTouchDevice =
+  window.matchMedia("(pointer: coarse)").matches ||
+  window.innerWidth <= 680;
+
+
 const cursorDot = document.getElementById("cursorDot");
 const cursorRing = document.getElementById("cursorRing");
 
@@ -13,44 +18,46 @@ let mouseX = window.innerWidth / 2,
 let ringX = mouseX,
   ringY = mouseY;
 
-window.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+if (!isTouchDevice) {
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-  cursorDot.style.left = mouseX + "px";
-  cursorDot.style.top = mouseY + "px";
-});
-
-function animateRing() {
-  ringX += (mouseX - ringX) * 0.15;
-  ringY += (mouseY - ringY) * 0.15;
-
-  cursorRing.style.left = ringX + "px";
-  cursorRing.style.top = ringY + "px";
-
-  requestAnimationFrame(animateRing);
-}
-
-animateRing();
-
-document
-  .querySelectorAll(
-    "a, button, .btn, .chip, .project-card, .contact-item"
-  )
-  .forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-      cursorRing.style.transform =
-        "translate(-50%,-50%) scale(1.35)";
-      cursorRing.style.borderColor = "rgba(46,230,255,.7)";
-    });
-
-    el.addEventListener("mouseleave", () => {
-      cursorRing.style.transform =
-        "translate(-50%,-50%) scale(1)";
-      cursorRing.style.borderColor =
-        "rgba(255,255,255,.35)";
-    });
+    cursorDot.style.left = mouseX + "px";
+    cursorDot.style.top = mouseY + "px";
   });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+
+    cursorRing.style.left = ringX + "px";
+    cursorRing.style.top = ringY + "px";
+
+    requestAnimationFrame(animateRing);
+  }
+
+  animateRing();
+
+  document
+    .querySelectorAll(
+      "a, button, .btn, .chip, .project-card, .contact-item"
+    )
+    .forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        cursorRing.style.transform =
+          "translate(-50%,-50%) scale(1.35)";
+        cursorRing.style.borderColor = "rgba(46,230,255,.7)";
+      });
+
+      el.addEventListener("mouseleave", () => {
+        cursorRing.style.transform =
+          "translate(-50%,-50%) scale(1)";
+        cursorRing.style.borderColor =
+          "rgba(255,255,255,.35)";
+      });
+    });
+}
 
 // Scroll reveal
 const revealEls = document.querySelectorAll(".reveal");
@@ -111,21 +118,28 @@ sections.forEach((section) =>
   navObserver.observe(section)
 );
 
-// Particle network canvas
+// Particle
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
 let particles = [];
 
 const colorPool = [
-  "#5b4dff",
+  "#9d3fc9",
   "#ff4fa3",
-  "#2ee6ff",
+  "#ffcf6b",
   "#ffb224",
 ];
 
+
+const drawConnections = !isTouchDevice;
+
 function resizeCanvas() {
-  const dpr = window.devicePixelRatio || 1;
+ 
+  const dpr = Math.min(
+    window.devicePixelRatio || 1,
+    isTouchDevice ? 1.5 : 2
+  );
 
   canvas.width = window.innerWidth * dpr;
   canvas.height = window.innerHeight * dpr;
@@ -139,10 +153,9 @@ function resizeCanvas() {
 }
 
 function initParticles() {
-  const count = Math.min(
-    110,
-    Math.max(55, Math.floor(window.innerWidth / 16))
-  );
+  const count = isTouchDevice
+    ? Math.min(45, Math.max(25, Math.floor(window.innerWidth / 22)))
+    : Math.min(110, Math.max(55, Math.floor(window.innerWidth / 16)));
 
   particles = [];
 
@@ -183,37 +196,39 @@ function drawParticles() {
     ctx.globalAlpha = 0.9;
     ctx.fill();
 
-    for (let j = i + 1; j < particles.length; j++) {
-      const q = particles[j];
+    if (drawConnections) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const q = particles[j];
 
-      const dx = p.x - q.x;
-      const dy = p.y - q.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
+        const dx = p.x - q.x;
+        const dy = p.y - q.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
-      if (dist < 120) {
+        if (dist < 120) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = p.c;
+          ctx.globalAlpha =
+            (1 - dist / 120) * 0.28;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+
+      const mdx = p.x - mouseX;
+      const mdy = p.y - mouseY;
+      const md = Math.sqrt(mdx * mdx + mdy * mdy);
+
+      if (md < 130) {
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
-        ctx.lineTo(q.x, q.y);
+        ctx.lineTo(mouseX, mouseY);
         ctx.strokeStyle = p.c;
         ctx.globalAlpha =
-          (1 - dist / 120) * 0.28;
-        ctx.lineWidth = 1;
+          (1 - md / 130) * 0.22;
         ctx.stroke();
       }
-    }
-
-    const mdx = p.x - mouseX;
-    const mdy = p.y - mouseY;
-    const md = Math.sqrt(mdx * mdx + mdy * mdy);
-
-    if (md < 130) {
-      ctx.beginPath();
-      ctx.moveTo(p.x, p.y);
-      ctx.lineTo(mouseX, mouseY);
-      ctx.strokeStyle = p.c;
-      ctx.globalAlpha =
-        (1 - md / 130) * 0.22;
-      ctx.stroke();
     }
   }
 
@@ -226,26 +241,28 @@ window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 drawParticles();
 
-// 3D card effect
-const floatCard =
-  document.querySelector(".floating-card");
 
-const heroRight =
-  document.querySelector(".hero-right");
+if (!isTouchDevice) {
+  const floatCard =
+    document.querySelector(".floating-card");
 
-heroRight.addEventListener("mousemove", (e) => {
-  const rect = heroRight.getBoundingClientRect();
+  const heroRight =
+    document.querySelector(".hero-right");
 
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+  heroRight.addEventListener("mousemove", (e) => {
+    const rect = heroRight.getBoundingClientRect();
 
-  const rx = (y / rect.height - 0.5) * -10;
-  const ry = (x / rect.width - 0.5) * 12;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-  floatCard.style.transform =
-    `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
-});
+    const rx = (y / rect.height - 0.5) * -10;
+    const ry = (x / rect.width - 0.5) * 12;
 
-heroRight.addEventListener("mouseleave", () => {
-  floatCard.style.transform = "";
-});
+    floatCard.style.transform =
+      `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+  });
+
+  heroRight.addEventListener("mouseleave", () => {
+    floatCard.style.transform = "";
+  });
+}
