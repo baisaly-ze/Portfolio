@@ -266,3 +266,85 @@ if (!isTouchDevice) {
     floatCard.style.transform = "";
   });
 }
+
+
+     // Mobile hamburger nav 
+      (function () {
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+        if (!navToggle || !navLinks) return;
+
+        function closeMenu() {
+          navToggle.classList.remove("open");
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+
+        navToggle.addEventListener("click", () => {
+          const isOpen = navLinks.classList.toggle("open");
+          navToggle.classList.toggle("open", isOpen);
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+     
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+       
+        document.addEventListener("click", (e) => {
+          if (!e.target.closest(".navbar")) closeMenu();
+        });
+      })();
+
+(function () {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  const result = document.getElementById("formResult");
+  const submitBtn = form.querySelector(".form-submit-btn");
+  const btnText = submitBtn.querySelector(".btn-text");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    btnText.textContent = "Sending...";
+    result.textContent = "";
+    result.className = "form-result";
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+
+      const dataResult = await response.json();
+
+      if (response.status === 200) {
+        result.textContent = "Message sent! I'll get back to you soon.";
+        result.classList.add("success");
+        form.reset();
+      } else {
+        console.error(dataResult);
+        result.textContent = dataResult.message || "Something went wrong. Please try again.";
+        result.classList.add("error");
+      }
+    } catch (error) {
+      console.error(error);
+      result.textContent = "Something went wrong. Please try again.";
+      result.classList.add("error");
+    } finally {
+      submitBtn.disabled = false;
+      btnText.textContent = "Send Message";
+    }
+  });
+})();

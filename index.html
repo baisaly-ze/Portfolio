@@ -573,12 +573,35 @@
             </div>
           </div>
 
-          <div class="ripple-zone reveal right">
-            <div class="ripple r1"></div>
-            <div class="ripple r2"></div>
-            <div class="ripple r3"></div>
-            <div class="pulse-core">BK</div>
-          </div>
+<div class="contact-form-wrap reveal right">
+  <form id="contactForm" class="contact-form">
+    <input type="hidden" name="access_key" value="74ab5253-f32b-41c5-86bc-cf07fd485992">
+    <input type="hidden" name="subject" value="New message from your portfolio">
+    <input type="checkbox" name="botcheck" class="botcheck" style="display:none">
+
+    <div class="form-group">
+      <input type="text" name="name" id="name" placeholder=" " required>
+      <label for="name">Your Name</label>
+    </div>
+
+    <div class="form-group">
+      <input type="email" name="email" id="email" placeholder=" " required>
+      <label for="email">Your Email</label>
+    </div>
+
+    <div class="form-group">
+      <textarea name="message" id="message" placeholder=" " rows="5" required></textarea>
+      <label for="message">Your Message</label>
+    </div>
+
+    <button type="submit" class="btn primary form-submit-btn">
+      <span class="btn-text">Send Message</span>
+    </button>
+
+    <div id="formResult" class="form-result"></div>
+  </form>
+</div>
+
         </div>
       </section>
     </main>
@@ -588,35 +611,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-      // Mobile hamburger nav toggle — self-contained, doesn't touch script.js
-      (function () {
-        const navToggle = document.getElementById("navToggle");
-        const navLinks = document.getElementById("navLinks");
-        if (!navToggle || !navLinks) return;
-
-        function closeMenu() {
-          navToggle.classList.remove("open");
-          navLinks.classList.remove("open");
-          navToggle.setAttribute("aria-expanded", "false");
-        }
-
-        navToggle.addEventListener("click", () => {
-          const isOpen = navLinks.classList.toggle("open");
-          navToggle.classList.toggle("open", isOpen);
-          navToggle.setAttribute("aria-expanded", String(isOpen));
-        });
-
-        // Close the menu after tapping a link (anchor navigation)
-        navLinks.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", closeMenu);
-        });
-
-        // Close if tapping outside the nav
-        document.addEventListener("click", (e) => {
-          if (!e.target.closest(".navbar")) closeMenu();
-        });
-      })();
-    </script>
   </body>
 </html>
